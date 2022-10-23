@@ -38,5 +38,44 @@ namespace Desafio02Library.Client
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Dev>(json);
         }
+
+        public static async Task<Dev?> AddDev(Dev dev)
+        {
+            var keyValuePairs = new List<KeyValuePair<string, string>>();
+            keyValuePairs.Add(new KeyValuePair<string, string>("name", dev.Nome));
+            keyValuePairs.Add(new KeyValuePair<string, string>("avatar", dev.Avatar));
+            keyValuePairs.Add(new KeyValuePair<string, string>("squad", dev.Squad));
+            keyValuePairs.Add(new KeyValuePair<string, string>("login", dev.Login));
+            keyValuePairs.Add(new KeyValuePair<string, string>("email", dev.Email));
+
+            var req = new HttpRequestMessage(HttpMethod.Post, _baseUri) { Content = new FormUrlEncodedContent(keyValuePairs) };
+
+            var response = _client.SendAsync(req);
+            response.Wait();
+            response.Result.EnsureSuccessStatusCode();
+            var json = await response.Result.Content.ReadAsStringAsync();
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Dev>(json);
+        }
+
+        public static async Task<Dev?> UpdateDev(Dev dev)
+        {
+            var keyValuePairs = new List<KeyValuePair<string, string>>();
+            keyValuePairs.Add(new KeyValuePair<string, string>("name", dev.Nome));
+            keyValuePairs.Add(new KeyValuePair<string, string>("avatar", dev.Avatar));
+            keyValuePairs.Add(new KeyValuePair<string, string>("squad", dev.Squad));
+            keyValuePairs.Add(new KeyValuePair<string, string>("login", dev.Login));
+            keyValuePairs.Add(new KeyValuePair<string, string>("email", dev.Email));
+
+            var uri = _baseUri + "/" + dev.Id;
+            var req = new HttpRequestMessage(HttpMethod.Put, uri) { Content = new FormUrlEncodedContent(keyValuePairs) };
+
+            var response = _client.SendAsync(req);
+            response.Wait();
+            response.Result.EnsureSuccessStatusCode();
+            var json = await response.Result.Content.ReadAsStringAsync();
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Dev>(json);
+        }
     }
 }

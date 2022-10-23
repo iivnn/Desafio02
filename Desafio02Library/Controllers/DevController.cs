@@ -22,5 +22,21 @@ namespace Desafio02Library.Controllers
 
             return devs.Result;
         }
+
+        public static Dev? AddDev(Dev dev)
+        {
+            var createdDev = DevClient.AddDev(dev);
+
+            return createdDev.Result;
+        }
+
+        public static Dev? UpdateDev(Dev dev)
+        {
+            var createdDev = DevClient.UpdateDev(dev);
+
+            return createdDev.Result;
+        }
+
+        
     }
 }

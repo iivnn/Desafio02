@@ -5,7 +5,7 @@ namespace Desafio02Library
     public class Dev : ICloneable
     {
         [JsonProperty("id")]
-        public int Id { get; set; } = 0;
+        public int? Id { get; set; } = null;
 
         [JsonProperty("name")]
         public string Nome { get; set; } = string.Empty;
@@ -71,7 +71,7 @@ namespace Desafio02Library
             try
             {
                 var addr = new System.Net.Mail.MailAddress(Email);
-                if (addr.Host != "prosoft.com")
+                if (addr.Host != "prosoft.com.br")
                 {
                     message = "Domínio diferente de \"prosoft.com\".";
                     return false;

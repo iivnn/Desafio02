@@ -90,15 +90,44 @@ namespace Desafio02.Forms
 
         private void criarEditarButton_Click(object sender, EventArgs e)
         {
-            if (_dev.Id == 0)
+            if (!_dev.IsNomeValid(out string message))
             {
+                errorProvider.SetError(nomeTextBox, message);
+                nomeTextBox.Focus();
+                return;
+            }
+
+            if (!_dev.IsLoginValid(out message))
+            {
+                errorProvider.SetError(loginTextBox, message);
+                loginTextBox.Focus();
+                return;
+            }
+
+            if (!_dev.IsSquadValid(out message))
+            {
+                errorProvider.SetError(emailTextBox, message);
+                emailTextBox.Focus();
+                return;
+            }
+
+            if (!_dev.IsEmailValid(out message))
+            {
+                errorProvider.SetError(squadComboBox, message);
+                squadComboBox.Focus();
+                return;
+            }
 
 
+            if (_dev.Id == null)
+            {
+                DevController.AddDev(_dev);
             }
             else
             {
-
+                DevController.UpdateDev(_dev);
             }
+            this.Close();
         }
 
         private void previousAvatar_Click(object sender, EventArgs e)
