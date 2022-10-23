@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Desafio02Library.Classes;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace Desafio02Library
 {
     public class DevContext : DbContext
     {
+        public DbSet<Squad> Squads { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=.\\;Initial Catalog=Desafio;Persist Security Info=True;User ID=sa;Password=sqladmin;MultipleActiveResultSets=True;TrustServerCertificate=True");
@@ -16,7 +19,7 @@ namespace Desafio02Library
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Dev>().ToTable("Desenvolvedores");
+            modelBuilder.Entity<Squad>().ToTable("Squads");
         }
     }
 

@@ -48,3 +48,7 @@ C:\Users\Ivan\Documents\GitHub\Desafio02\Desafio02\obj\Debug\net6.0-windows\refi
 C:\Users\Ivan\Documents\GitHub\Desafio02\Desafio02\obj\Debug\net6.0-windows\Desafio02.pdb
 C:\Users\Ivan\Documents\GitHub\Desafio02\Desafio02\obj\Debug\net6.0-windows\Desafio02.genruntimeconfig.cache
 C:\Users\Ivan\Documents\GitHub\Desafio02\Desafio02\obj\Debug\net6.0-windows\ref\Desafio02.dll
+C:\Users\Ivan\Documents\GitHub\Desafio02\Desafio02\obj\Debug\net6.0-windows\Desafio02.Forms.AboutBox1.resources
+C:\Users\Ivan\Documents\GitHub\Desafio02\Desafio02\obj\Debug\net6.0-windows\Desafio02.Forms.CriarEditarDevForm.resources
+C:\Users\Ivan\Documents\GitHub\Desafio02\Desafio02\obj\Debug\net6.0-windows\Desafio02.Properties.Resources.resources
+C:\Users\Ivan\Documents\GitHub\Desafio02\Desafio02\obj\Debug\net6.0-windows\Desafio02.Forms.SquadsForm.resources

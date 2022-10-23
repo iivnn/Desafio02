@@ -38,8 +38,14 @@
             this.dataDeCriacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.devBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.updateDevDataGridViewDataTimer = new System.Windows.Forms.Timer(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novoDevToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.squadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.devDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.devBindingSource)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // devDataGridView
@@ -64,13 +70,16 @@
             this.emailDataGridViewTextBoxColumn,
             this.dataDeCriacaoDataGridViewTextBoxColumn});
             this.devDataGridView.DataSource = this.devBindingSource;
+            this.devDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.devDataGridView.Location = new System.Drawing.Point(12, 144);
             this.devDataGridView.MultiSelect = false;
             this.devDataGridView.Name = "devDataGridView";
             this.devDataGridView.ReadOnly = true;
             this.devDataGridView.RowTemplate.Height = 25;
+            this.devDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.devDataGridView.Size = new System.Drawing.Size(1037, 488);
             this.devDataGridView.TabIndex = 0;
+            this.devDataGridView.DoubleClick += new System.EventHandler(this.devDataGridView_DoubleClick);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -121,8 +130,48 @@
             // updateDevDataGridViewDataTimer
             // 
             this.updateDevDataGridViewDataTimer.Enabled = true;
-            this.updateDevDataGridViewDataTimer.Interval = 10000;
+            this.updateDevDataGridViewDataTimer.Interval = 20000;
             this.updateDevDataGridViewDataTimer.Tick += new System.EventHandler(this.updateDevDataGridViewDataTimer_Tick);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arquivoToolStripMenuItem,
+            this.sobreToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1061, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // arquivoToolStripMenuItem
+            // 
+            this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.novoDevToolStripMenuItem,
+            this.squadsToolStripMenuItem});
+            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
+            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.arquivoToolStripMenuItem.Text = "Dev";
+            // 
+            // novoDevToolStripMenuItem
+            // 
+            this.novoDevToolStripMenuItem.Name = "novoDevToolStripMenuItem";
+            this.novoDevToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoDevToolStripMenuItem.Text = "Novo";
+            this.novoDevToolStripMenuItem.Click += new System.EventHandler(this.novoDevToolStripMenuItem_Click);
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.sobreToolStripMenuItem.Text = "Sobre";
+            // 
+            // squadsToolStripMenuItem
+            // 
+            this.squadsToolStripMenuItem.Name = "squadsToolStripMenuItem";
+            this.squadsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.squadsToolStripMenuItem.Text = "Squads";
+            this.squadsToolStripMenuItem.Click += new System.EventHandler(this.squadsToolStripMenuItem_Click);
             // 
             // PrincipalForm
             // 
@@ -130,11 +179,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 644);
             this.Controls.Add(this.devDataGridView);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "PrincipalForm";
             this.Text = "Cadastro de Dev";
             ((System.ComponentModel.ISupportInitialize)(this.devDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.devBindingSource)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -149,5 +203,10 @@
         private DataGridViewTextBoxColumn dataDeCriacaoDataGridViewTextBoxColumn;
         private BindingSource devBindingSource;
         private System.Windows.Forms.Timer updateDevDataGridViewDataTimer;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem arquivoToolStripMenuItem;
+        private ToolStripMenuItem novoDevToolStripMenuItem;
+        private ToolStripMenuItem sobreToolStripMenuItem;
+        private ToolStripMenuItem squadsToolStripMenuItem;
     }
 }

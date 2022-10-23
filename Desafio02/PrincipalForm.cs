@@ -1,21 +1,23 @@
-using Desafio02Library.Client;
+using Desafio02.Forms;
+using Desafio02Library;
 using Desafio02Library.Controllers;
 
 namespace Desafio02
 {
     public partial class PrincipalForm : Form
     {
-        private System.Timers.Timer _updateDevsTimer;
-
         public PrincipalForm()
         {            
             InitializeComponent();
+            UpdateDevDataSource();
         }
 
         private void updateDevDataGridViewDataTimer_Tick(object sender, EventArgs e)
         {
+            updateDevDataGridViewDataTimer.Stop();
             UpdateDevDataSource();
-        }s
+            updateDevDataGridViewDataTimer.Start();
+        }
 
         private void UpdateDevDataSource()
         {
@@ -35,5 +37,27 @@ namespace Desafio02
             }
         }
 
+        private void novoDevToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var novoForm = new CriarEditarDevForm(null);
+            novoForm.ShowDialog();
+        }
+
+        private void devDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            var devGrid = (DataGridView)sender;
+            if(devGrid.SelectedRows.Count > 0)
+            {
+                var dev = (Dev)((Dev)devGrid.SelectedRows[0].DataBoundItem).Clone();
+                var novoForm = new CriarEditarDevForm(dev);
+                novoForm.ShowDialog();
+            }            
+        }
+
+        private void squadsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var novoForm = new SquadsForm();
+            novoForm.ShowDialog();
+        }
     }
 }
