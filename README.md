@@ -37,7 +37,7 @@ Altere a string de conexão com banco de dados
 ```
 
 
-## Demonstração
+## Demonstrações
 
-Insira um gif ou um link de alguma demonstração
+![App Screenshot]([https://via.placeholder.com/468x300?text=App+Screenshot+Here](https://github.com/iivnn/Desafio02/blob/main/Imagens/TelaInicial.PNG?raw=true))
 
