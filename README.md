@@ -39,5 +39,5 @@ Altere a string de conexão com banco de dados
 
 ## Demonstrações
 
-![App Screenshot]([[https://via.placeholder.com/468x300?text=App+Screenshot+Here](https://github.com/iivnn/Desafio02/blob/main/Imagens/TelaInicial.PNG?raw=true](https://raw.githubusercontent.com/iivnn/Desafio02/main/Imagens/TelaInicial.PNG?token=GHSAT0AAAAAABXLWGFEMYG3YOBCRPU6WK3KY23FVZA)))
+![App Screenshot](https://raw.githubusercontent.com/iivnn/Desafio02/main/Imagens/TelaInicial.PNG?token=GHSAT0AAAAAABXLWGFEMYG3YOBCRPU6WK3KY23FVZA)
 
