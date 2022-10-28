@@ -63,7 +63,7 @@ Editar Devs
 
 ![App Screenshot](https://raw.githubusercontent.com/iivnn/Desafio02/main/Imagens/Editar.gif?token=GHSAT0AAAAAABXLWGFEJ6VGQJDRI477AU4SY23F3XQ)
 
-criar Squads
+Criar Squads
 
 ```bash
   Dev > Squads
