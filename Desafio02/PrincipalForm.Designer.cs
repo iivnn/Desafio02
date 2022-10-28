@@ -41,8 +41,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novoDevToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.squadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.operaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exceçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.devDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.devBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -71,13 +73,13 @@
             this.dataDeCriacaoDataGridViewTextBoxColumn});
             this.devDataGridView.DataSource = this.devBindingSource;
             this.devDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.devDataGridView.Location = new System.Drawing.Point(12, 144);
+            this.devDataGridView.Location = new System.Drawing.Point(12, 40);
             this.devDataGridView.MultiSelect = false;
             this.devDataGridView.Name = "devDataGridView";
             this.devDataGridView.ReadOnly = true;
             this.devDataGridView.RowTemplate.Height = 25;
             this.devDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.devDataGridView.Size = new System.Drawing.Size(1037, 488);
+            this.devDataGridView.Size = new System.Drawing.Size(1037, 592);
             this.devDataGridView.TabIndex = 0;
             this.devDataGridView.DoubleClick += new System.EventHandler(this.devDataGridView_DoubleClick);
             // 
@@ -156,22 +158,39 @@
             // novoDevToolStripMenuItem
             // 
             this.novoDevToolStripMenuItem.Name = "novoDevToolStripMenuItem";
-            this.novoDevToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoDevToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.novoDevToolStripMenuItem.Text = "Novo";
             this.novoDevToolStripMenuItem.Click += new System.EventHandler(this.novoDevToolStripMenuItem_Click);
-            // 
-            // sobreToolStripMenuItem
-            // 
-            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.sobreToolStripMenuItem.Text = "Sobre";
             // 
             // squadsToolStripMenuItem
             // 
             this.squadsToolStripMenuItem.Name = "squadsToolStripMenuItem";
-            this.squadsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.squadsToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.squadsToolStripMenuItem.Text = "Squads";
             this.squadsToolStripMenuItem.Click += new System.EventHandler(this.squadsToolStripMenuItem_Click);
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.operaçõesToolStripMenuItem,
+            this.exceçõesToolStripMenuItem});
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.sobreToolStripMenuItem.Text = "Logs";
+            // 
+            // operaçõesToolStripMenuItem
+            // 
+            this.operaçõesToolStripMenuItem.Name = "operaçõesToolStripMenuItem";
+            this.operaçõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.operaçõesToolStripMenuItem.Text = "Operações";
+            this.operaçõesToolStripMenuItem.Click += new System.EventHandler(this.operaçõesToolStripMenuItem_Click);
+            // 
+            // exceçõesToolStripMenuItem
+            // 
+            this.exceçõesToolStripMenuItem.Name = "exceçõesToolStripMenuItem";
+            this.exceçõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exceçõesToolStripMenuItem.Text = "Exceções";
+            this.exceçõesToolStripMenuItem.Click += new System.EventHandler(this.exceçõesToolStripMenuItem_Click);
             // 
             // PrincipalForm
             // 
@@ -208,5 +227,7 @@
         private ToolStripMenuItem novoDevToolStripMenuItem;
         private ToolStripMenuItem sobreToolStripMenuItem;
         private ToolStripMenuItem squadsToolStripMenuItem;
+        private ToolStripMenuItem operaçõesToolStripMenuItem;
+        private ToolStripMenuItem exceçõesToolStripMenuItem;
     }
 }

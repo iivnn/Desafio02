@@ -26,25 +26,34 @@ namespace Desafio02.Forms
 
         private void AdjustControls()
         {
-            devBindingSource.DataSource = _dev;
-
-            this.Text = _dev.Id == 0 ? "Novo Dev" : "Editar Dev";
-
-            dataCriacaoLabel.Visible = _dev.Id > 0;
-
-            if (_dev.Id > 0)
+            try
             {
-                dataCriacaoLabel.Text = dataCriacaoLabel.Text + " " + _dev.DataDeCriacao.ToString();
-                criarEditarButton.Text = "Editar";
+                devBindingSource.DataSource = _dev;
+
+                this.Text = _dev.Id == 0 ? "Novo Dev" : "Editar Dev";
+
+                dataCriacaoLabel.Visible = _dev.Id > 0;
+
+                if (_dev.Id > 0)
+                {
+                    dataCriacaoLabel.Text = dataCriacaoLabel.Text + " " + _dev.DataDeCriacao.ToString();
+                    criarEditarButton.Text = "Editar";
+                }
+                else
+                {
+                    _dev.SetAvatar(_selectedAvatarIndex);
+                }
+
+                previousAvatar.Enabled = false;
+
+                squadComboBox.DataSource = SquadController.GetAllSquads();
+
             }
-            else
+            catch (Exception ex)
             {
-                _dev.SetAvatar(_selectedAvatarIndex);
-            }
-
-            previousAvatar.Enabled = false;
-
-            squadComboBox.DataSource = SquadController.GetAllSquads();
+                LogController.Logexception(ex, this.GetType().FullName, "AdjustControls");
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }         
         }
 
         private void nomeTextBox_Validating(object sender, CancelEventArgs e)
@@ -90,70 +99,96 @@ namespace Desafio02.Forms
 
         private void criarEditarButton_Click(object sender, EventArgs e)
         {
-            if (!_dev.IsNomeValid(out string message))
+            try
             {
-                errorProvider.SetError(nomeTextBox, message);
-                nomeTextBox.Focus();
-                return;
-            }
+                if (!_dev.IsNomeValid(out string message))
+                {
+                    errorProvider.SetError(nomeTextBox, message);
+                    nomeTextBox.Focus();
+                    return;
+                }
 
-            if (!_dev.IsLoginValid(out message))
-            {
-                errorProvider.SetError(loginTextBox, message);
-                loginTextBox.Focus();
-                return;
-            }
+                if (!_dev.IsLoginValid(out message))
+                {
+                    errorProvider.SetError(loginTextBox, message);
+                    loginTextBox.Focus();
+                    return;
+                }
 
-            if (!_dev.IsSquadValid(out message))
-            {
-                errorProvider.SetError(emailTextBox, message);
-                emailTextBox.Focus();
-                return;
-            }
+                if (!_dev.IsEmailValid(out message))
+                {
+                    errorProvider.SetError(emailTextBox, message);
+                    squadComboBox.Focus();
+                    return;
+                }
 
-            if (!_dev.IsEmailValid(out message))
-            {
-                errorProvider.SetError(squadComboBox, message);
-                squadComboBox.Focus();
-                return;
-            }
+                if (!_dev.IsSquadValid(out message))
+                {
+                    errorProvider.SetError(squadComboBox, message);
+                    emailTextBox.Focus();
+                    return;
+                }
 
-
-            if (_dev.Id == null)
-            {
-                DevController.AddDev(_dev);
+                if (_dev.Id == null)
+                {
+                    DevController.AddDev(_dev);
+                }
+                else
+                {
+                    DevController.UpdateDev(_dev);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                DevController.UpdateDev(_dev);
+                LogController.Logexception(ex, this.GetType().FullName, "criarEditarButton_Click");
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+           
             this.Close();
         }
 
         private void previousAvatar_Click(object sender, EventArgs e)
         {
-            _selectedAvatarIndex--;
-            nextAvatar.Enabled = true;
-            if (_selectedAvatarIndex == 1)
+            try
             {
-                previousAvatar.Enabled = false;
+                _selectedAvatarIndex--;
+                nextAvatar.Enabled = true;
+                if (_selectedAvatarIndex == 1)
+                {
+                    previousAvatar.Enabled = false;
+                }
+                _dev.SetAvatar(_selectedAvatarIndex);
+                avatarPictureBox.ImageLocation = _dev.Avatar;
+                avatarPictureBox.Load();
             }
-            _dev.SetAvatar(_selectedAvatarIndex);
-            avatarPictureBox.ImageLocation = _dev.Avatar;
-            avatarPictureBox.Load();
+            catch(Exception ex)
+            {
+                LogController.Logexception(ex, this.GetType().FullName, "previousAvatar_Click");
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void nextAvatar_Click(object sender, EventArgs e)
         {
-            _selectedAvatarIndex++;
-            previousAvatar.Enabled = true;
-            if (_selectedAvatarIndex == 500)
+            try
             {
-                nextAvatar.Enabled = false;
+                _selectedAvatarIndex++;
+                previousAvatar.Enabled = true;
+                if (_selectedAvatarIndex == 500)
+                {
+                    nextAvatar.Enabled = false;
+                }
+                _dev.SetAvatar(_selectedAvatarIndex);
+                avatarPictureBox.ImageLocation = _dev.Avatar;
+                avatarPictureBox.Load();
             }
-            _dev.SetAvatar(_selectedAvatarIndex);
-            avatarPictureBox.ImageLocation = _dev.Avatar;
-            avatarPictureBox.Load();
+            catch(Exception ex)
+            {
+                LogController.Logexception(ex, this.GetType().FullName, "nextAvatar_Click");
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

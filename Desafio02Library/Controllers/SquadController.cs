@@ -14,8 +14,9 @@ namespace Desafio02Library.Controllers
             var devContext = new DevContext();
             var squads = devContext.Squads.ToList();
             devContext.Dispose();
+            LogController.LogOperation("GetAllSquads", "SquadController");
             return squads;
-        }
+        }                   
 
         public static void RemoveSquad(int id)
         {
@@ -23,6 +24,7 @@ namespace Desafio02Library.Controllers
             var squad = devContext.Squads.Find(id);
             devContext.Squads.Remove(squad);
             devContext.SaveChanges();
+            LogController.LogOperation("RemoveSquad", "SquadController", squad);
             devContext.Dispose();
         }
 
@@ -32,6 +34,7 @@ namespace Desafio02Library.Controllers
             var squad = new Squad() { Nome = nome };
             devContext.Squads.Add(squad);
             devContext.SaveChanges();
+            LogController.LogOperation("AddSquad", "SquadController", squad);
             devContext.Dispose();
         }
     }

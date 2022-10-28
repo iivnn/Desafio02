@@ -1,4 +1,5 @@
 ﻿using Desafio02Library.Classes;
+using Desafio02Library.Contexts.DevClasses;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ namespace Desafio02Library
     public class DevContext : DbContext
     {
         public DbSet<Squad> Squads { get; set; }
+        public DbSet<ExceptionLog> ExceptionLogs { get; set; }
+        public DbSet<Log> Logs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,6 +23,8 @@ namespace Desafio02Library
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Squad>().ToTable("Squads");
+            modelBuilder.Entity<ExceptionLog>().ToTable("ExceptionLogs");
+            modelBuilder.Entity<Log>().ToTable("Logs");
         }
     }
 

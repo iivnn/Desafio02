@@ -23,19 +23,46 @@ namespace Desafio02.Forms
 
         private void AdjustControls()
         {
-            squadBindingSource.DataSource = SquadController.GetAllSquads();
+            try
+            {
+                string string1 = null;
+                string1.Equals(Environment.GetEnvironmentVariables());
+                squadBindingSource.DataSource = SquadController.GetAllSquads();
+            }
+            catch(Exception ex) 
+            {
+                LogController.Logexception(ex, this.GetType().FullName, "AdjustControls");
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void squadDataGridView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            var squad = (Squad)e.Row.DataBoundItem;
-            SquadController.RemoveSquad(squad.Id);
+            try
+            {
+                var squad = (Squad)e.Row.DataBoundItem;
+                SquadController.RemoveSquad(squad.Id);
+            }
+            catch(Exception ex)
+            {
+                LogController.Logexception(ex, this.GetType().FullName, "squadDataGridView_UserDeletingRow");
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            SquadController.AddSquad(nomeTextBox.Text);
-            squadBindingSource.DataSource = SquadController.GetAllSquads();
+            try
+            {
+                SquadController.AddSquad(nomeTextBox.Text);
+                squadBindingSource.DataSource = SquadController.GetAllSquads();
+            }
+            catch (Exception ex)
+            {
+                LogController.Logexception(ex, this.GetType().FullName, "addButton_Click");
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
