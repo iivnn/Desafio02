@@ -39,5 +39,11 @@ Altere a string de conexão com banco de dados
 
 ## Demonstrações
 
+Tela Inicial
+
+```bash
+  Aqui o usuário irá visualizar todos os devs cadastrados. Sua informações são atualizadas de 20 em 20 segundos.
+```
+
 ![App Screenshot](https://raw.githubusercontent.com/iivnn/Desafio02/main/Imagens/TelaInicial.PNG?token=GHSAT0AAAAAABXLWGFEMYG3YOBCRPU6WK3KY23FVZA)
 
