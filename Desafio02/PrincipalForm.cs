@@ -39,6 +39,7 @@ namespace Desafio02
             try
             {
                 var novoForm = new CriarEditarDevForm(null);
+                novoForm.FormClosed += (s, e) => { UpdateDevDataSource(); };
                 novoForm.ShowDialog();
             }
             catch(Exception ex)
@@ -57,6 +58,7 @@ namespace Desafio02
                 {
                     var dev = (Dev)((Dev)devGrid.SelectedRows[0].DataBoundItem).Clone();
                     var novoForm = new CriarEditarDevForm(dev);
+                    novoForm.FormClosed += (s, e) => { UpdateDevDataSource(); };
                     novoForm.ShowDialog();
                 }
             }

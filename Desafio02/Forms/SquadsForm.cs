@@ -25,8 +25,6 @@ namespace Desafio02.Forms
         {
             try
             {
-                string string1 = null;
-                string1.Equals(Environment.GetEnvironmentVariables());
                 squadBindingSource.DataSource = SquadController.GetAllSquads();
             }
             catch(Exception ex) 
