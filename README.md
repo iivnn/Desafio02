@@ -45,7 +45,7 @@ Tela Inicial
   Aqui o usuário irá visualizar todos os devs cadastrados. Sua informações são atualizadas de 20 em 20 segundos.
 ```
 
-![App Screenshot](https://raw.githubusercontent.com/iivnn/Desafio02/main/Imagens/TelaInicial.PNG?token=GHSAT0AAAAAABXLWGFEMYG3YOBCRPU6WK3KY23FVZA)
+![App Screenshot](https://raw.githubusercontent.com/iivnn/Desafio02/main/Imagens/TelaInicial.PNG?token=GHSAT0AAAAAABXLWGFEOBD5PGCV2WWHRFJ6Y23F6RQ)
 
 Cadastrar Devs
 
