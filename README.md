@@ -47,3 +47,30 @@ Tela Inicial
 
 ![App Screenshot](https://raw.githubusercontent.com/iivnn/Desafio02/main/Imagens/TelaInicial.PNG?token=GHSAT0AAAAAABXLWGFEMYG3YOBCRPU6WK3KY23FVZA)
 
+Cadastrar Devs
+
+```bash
+  Dev > Novo
+```
+
+![App Screenshot](https://raw.githubusercontent.com/iivnn/Desafio02/main/Imagens/Novo.gif?token=GHSAT0AAAAAABXLWGFF4WHK5UXWTFKA4RXUY23F2YA)
+
+Editar Devs
+
+```bash
+  Duplo click no dev que se deseja alterar no grid
+```
+
+![App Screenshot](https://raw.githubusercontent.com/iivnn/Desafio02/main/Imagens/Editar.gif?token=GHSAT0AAAAAABXLWGFEJ6VGQJDRI477AU4SY23F3XQ)
+
+criar Squads
+
+```bash
+  Dev > Squads
+  Aqui o usuário pode criar novos Squads ou deletar algum selecionado no grid e teclando "delete"
+```
+
+![App Screenshot](https://raw.githubusercontent.com/iivnn/Desafio02/main/Imagens/Squad.gif?token=GHSAT0AAAAAABXLWGFF4HTFYPGFNR3PPMZYY23F4NQ)
+
+
+
